@@ -1,0 +1,478 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nihongood 🍱</title>
+    <style>
+      h1,
+      h2 {
+        text-align: center;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        margin: 0 auto;
+        line-height: 46px;
+      }
+      h1 {
+        color: #cb3737;
+        font-size: 42px;
+      }
+      h2 {
+        color: black;
+        font-size: 22px;
+      }
+      body {
+        background: #fafafa;
+        display: block;
+        margin: 8px;
+      }
+
+      .listEmojis {
+        display: block;
+        margin-bottom: 15px;
+        padding: 3px 0;
+        text-align: center;
+      }
+      .teaEmoji,
+      .riceEmoji,
+      .sweetEmoji {
+        list-style: none;
+        display: inline-block;
+        padding: 10px 80px;
+        border-radius: 10px;
+        margin: 0 auto;
+        background: #e3e3e3;
+      }
+      .teaEmoji:hover {
+        background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/013/509/original/1.jpg?1626900344");
+      }
+      .riceEmoji:hover {
+        background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/013/511/original/3.jpg?1626900361");
+      }
+      .sweetEmoji:hover {
+        background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/013/512/original/4.jpg?1626900370");
+      }
+      .teaTitle,
+      .riceTitle,
+      .sweetTitle {
+        max-width: 700px;
+        margin: 0 auto;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 18px;
+        text-align: center;
+        color: #cb3737;
+      }
+      .teaText,
+      .riceText {
+        max-width: 700px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        font-family: sans-serif;
+        font-size: 12px;
+      }
+      .sweetText {
+        max-width: 700px;
+        margin: 0 auto;
+        margin-bottom: 40px;
+        font-family: sans-serif;
+        font-size: 12px;
+      }
+
+      .shop,
+      .substituteFood,
+      .moreRecipes {
+        background: #e3e3e354;
+        display: block;
+        padding: 10px 0;
+        max-width: 450px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 14px;
+        font-family: sans-serif;
+        margin-top: 10px;
+      }
+      .resultRating {
+        text-align: center;
+        font-weight: bold;
+        font-size: 15px;
+        line-height: normal;
+        color: black;
+        font-family: sans-serif;
+      }
+
+      hr {
+        max-width: 700px;
+      }
+      .separateRecipes {
+        max-width: 700px;
+        border: 1px dotted #e3e3e3;
+      }
+
+      .ratingText {
+        font-family: sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      .listStars {
+        display: block;
+        text-align: start;
+        padding-left: 0;
+      }
+
+      .oneStar,
+      .twoStars,
+      .threeStars,
+      .fourStars,
+      .fiveStars {
+        list-style: none;
+        text-align: center;
+        padding: 10px 0;
+        border-radius: 10px;
+        transition: all 200ms ease-in-out;
+        font-family: sans-serif;
+        font-size: 14px;
+        max-width: 400px;
+        margin: 0 auto;
+        display: flow-root;
+      }
+
+      .oneStar:hover,
+      .twoStars:hover,
+      .threeStars:hover,
+      .fourStars:hover,
+      .fiveStars:hover {
+        background: #e3e3e3;
+        max-width: 300px;
+      }
+
+      .curiosity {
+        color: #ee6f57;
+        font-weight: bolder;
+        font-family: sans-serif;
+        font-size: 12px;
+      }
+      .need {
+        text-decoration: underline;
+        font-family: sans-serif;
+        font-size: 12px;
+      }
+      a {
+        color: #ee6f57;
+      }
+
+      p {
+        text-align: center;
+        font-size: 14px;
+        font-family: sans-serif;
+      }
+
+      img {
+        display: block;
+        margin: 0 auto;
+        max-width: 90%;
+        border-radius: 10px;
+      }
+      button {
+        display: block;
+        margin: 20px auto;
+        border: 1px solid #ee6f57;
+        background: #ee6f57;
+        color: white;
+        font-size: 14px;
+        line-height: 19px;
+        padding: 14px 22px;
+        border-radius: 28px;
+        transition: all 200ms ease-in-out;
+        box-shadow: rgba(16, 18, 37, 0.294) 4px 4px 10px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: white;
+        color: #ee6f57;
+        border: 1px solid #ee6f57;
+      }
+      .finalMessage {
+        font-family: sans-serif;
+        font-weight: bolder;
+        text-align: center;
+        font-size: 18px;
+        padding: 10px 0;
+        color: #cb3737;
+      }
+      .coder,
+      .rights {
+        font-size: 10px;
+        text-align: center;
+        font-family: sans-serif;
+        font-weight: 100;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <h1>Nihongood</h1>
+      <h2>Comforting, flavorsome and easy japanese recipes</h2>
+      <ul class="listEmojis">
+        <li class="teaEmoji">🍵</li>
+        <li class="riceEmoji">🍙</li>
+        <li class="sweetEmoji">🍡</li>
+      </ul>
+      <hr />
+      <p class="teaImg">
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/013/544/original/pexels-pixabay-461428_%281%29.jpg?1626904477"
+          alt="matchaTea"
+          width="250px"
+        />
+      </p>
+      <p class="teaText">
+        <span class="teaTitle"> <em>Matcha tea</em> | 抹茶 </span>
+        <br />
+        <br />
+        <span class="need">What you'll need:</span>
+        a traditional matcha bowl, a bamboo whisk, hot water and a spoon. For
+        one tea bowl, use 1½ scoops of green tea powder (= about 2 g) and 2 to
+        2.4 oz (60-70 ml) of hot water.
+        <br />
+        <span class="curiosity">Curiosity:</span>
+        Matcha is finelly milled green tea powder. It is different from regular
+        green tea leafs because its plantations aren´t exposed directly to
+        sunlight for some time before harvesting. The tea leaves provides
+        vitamin c, fibre, catechines, caffeine and potassium.High in
+        antioxidants, this tea offers many great health benefits and helps relax
+        and focus the mind.
+      </p>
+      <hr class="separateRecipes" />
+      <p class="riceImg">
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/013/510/original/2.jpg?1626900354"
+          alt="onigiri"
+          width="250px"
+        />
+      </p>
+      <p class="riceText">
+        <span class="riceTitle"> <em>Onigiri</em> | おにぎり </span>
+        <br />
+        <br />
+        <span class="need">What you'll need:</span>
+        warm/hot rice and for a <em>Tuna Mayo Filling</em>, mix 1 canned tuna, 2
+        Tbsp Japanese mayonnaise, a half Tbsp soy sauce and salt.
+        <br />
+        <span class="curiosity">Curiosity:</span> <em>Onigiri</em> is a Japanese
+        rice ball made of rice formed into triangular shapes, it is often
+        wrapped in <em>nori</em> (dried edible seaweed that has a lot of
+        vitamins) and stuffed with various fillings. The rice is kept fresh
+        longer by filling it with salty or sour ingredient as natural
+        preservatives. That’s why salt is rubbed on hands when you make onigiri
+        so that rice is kept safe for a longer time.
+      </p>
+      <hr class="separateRecipes" />
+      <p class="sweetImg">
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/013/513/original/Hanami-Dango-500x400.jpg?1626900387"
+          alt="HanamiDango"
+          width="250px"
+        />
+      </p>
+      <p class="sweetText">
+        <span class="sweetTitle"> <em>Hanami Dango</em> | 花見団子 </span>
+        <br />
+        <br />
+        <span class="need">What you'll need:</span> 1 cup
+        <em>joshinko</em> (japanese rice flour); 1 cup
+        <em>shiratamako</em> (glutinous/sweet rice flour) ½ cup sugar; ¾ cup hot
+        water; 1 Tbsp yomogi (mugwort) or 1 to 1.5 tsp matcha green tea powder;
+        2 Tbsp hot water and red food coloring.
+        <span class="fullDangoRecipe">
+          <a
+            href="https://www.justonecookbook.com/hanami-dango/"
+            target="_blank"
+            data-wpel-link="external"
+            class="ext-link wpel-icon-right"
+          >
+            See full recipe
+          </a>
+        </span>
+
+        <br />
+        <span class="curiosity">Curiosity:</span> <em>Hanami Dango</em> are
+        sweet dumplings made with rice flour and skewered on a stick. The 3
+        dumplings are pink, white and green(from top to bottom). This popular
+        sweet is enjoyed in Japan during the cherry blossom viewing (or
+        <em>Hanami</em> in japanese).
+        <br />
+        <br />
+        <span class="rights">
+          Hanami Dango Picture and Text sourced by
+          <a
+            href="https://www.justonecookbook.com"
+            target="_blank"
+            data-wpel-link="external"
+            class="ext-link wpel-icon-right"
+          >
+            <strong> JustOneCookbook </strong>
+          </a>
+        </span>
+        <br />
+        <br />
+      </p>
+
+      <p class="information">
+        <span class="shop">
+          🛒 Shop for essential japanese ingredients on
+          <a
+            href="https://www.amazon.com/shop/justonecookbook?listId=1PXG97D0CRXL8"
+            target="_blank"
+            data-wpel-link="external"
+            class="ext-link wpel-icon-right"
+          >
+            Amazon
+          </a>
+        </span>
+
+        <span class="substituteFood">
+          💡 Find ingredient substitutions
+          <a
+            href="https://www.justonecookbook.com/ingredient-substitution-for-japanese-cooking/"
+            target="_blank"
+            data-wpel-link="external"
+            class="ext-link wpel-icon-right"
+          >
+            here
+          </a>
+        </span>
+
+        <span class="moreRecipes">
+          🍲 Find
+          <a
+            href="https://www.justonecookbook.com/recipes/"
+            target="_blank"
+            data-wpel-link="external"
+            class="ext-link wpel-icon-right"
+          >
+            more recipes
+          </a>
+        </span>
+      </p>
+
+      <br />
+      <p>
+        <span class="ratingText"
+          >✋ If you tried any of these recipes you can leave a rating:</span
+        >
+      </p>
+      <button class="recipe-button">Select recipe</button>
+      <ol class="listStars">
+        <li class="oneStar">I really didn't like it.</li>
+        <li class="twoStars">It wasn't too bad.</li>
+        <li class="threeStars">It was okay.</li>
+        <li class="fourStars">I would recommend it.</li>
+        <li class="fiveStars">I loved it!</li>
+      </ol>
+      <p class="resultRating">Your rating:</p>
+      <br />
+      <hr />
+      <button class="subscribe-button">👉Subscribe</button>
+      <p class="finalMessage">Happy cooking!</p>
+      <p class="coder">This page was built by Inês Brandão</p>
+
+      <script>
+        function initialTea() {
+          alert(
+            "A perfect company for when you want to relax and enjoy a good book."
+          );
+        }
+        function initialRice() {
+          alert("Easy to make and very comforting after a busy day.");
+        }
+        function initialSweet() {
+          alert("A beautiful and colorful dessert filled with flavour.");
+        }
+
+        function subscribe() {
+          let name = prompt("What is your name?");
+          let email = prompt("What is your email address?");
+          let goodbye = document.querySelector(".finalMessage");
+          if (name.length > 0 && email.length > 0) {
+            alert(
+              "Thank you " +
+                name +
+                "! We will be in touch by email with new recipes soon! ☺"
+            );
+            goodbye.innerHTML = "Happy cooking, " + name + "!";
+          }
+        }
+
+        function choose() {
+          let choice = prompt(
+            "Please write the recipe you cooked: (matcha, onigiri or dango)"
+          );
+
+          choice = choice.toLowerCase();
+          choice = choice.trim();
+
+          let heading = document.querySelector(".recipe-button");
+          if (choice === "matcha") {
+            heading.innerHTML = "🍵";
+          } else if (choice === "onigiri") {
+            heading.innerHTML = "🍙";
+          } else if (choice === "dango") {
+            heading.innerHTML = "🍡";
+          } else {
+            alert("Please try again.");
+          }
+        }
+
+        function selectOne() {
+          let heading = document.querySelector(".resultRating");
+          heading.innerHTML = "Your rating: ⭐";
+        }
+        function selectTwo() {
+          let heading = document.querySelector(".resultRating");
+          heading.innerHTML = "Your rating: ⭐⭐";
+        }
+        function selectThree() {
+          let heading = document.querySelector(".resultRating");
+          heading.innerHTML = "Your rating: ⭐⭐⭐";
+        }
+        function selectFour() {
+          let heading = document.querySelector(".resultRating");
+          heading.innerHTML = "Your rating: ⭐⭐⭐⭐";
+        }
+        function selectFive() {
+          let heading = document.querySelector(".resultRating");
+          heading.innerHTML = "Your rating: ⭐⭐⭐⭐⭐";
+        }
+
+        let infoTea = document.querySelector(".teaEmoji");
+        infoTea.addEventListener("click", initialTea);
+
+        let infoRice = document.querySelector(".riceEmoji");
+        infoRice.addEventListener("click", initialRice);
+
+        let infoSweet = document.querySelector(".sweetEmoji");
+        infoSweet.addEventListener("click", initialSweet);
+
+        let choiceOne = document.querySelector(".oneStar");
+        choiceOne.addEventListener("click", selectOne);
+        let choiceTwo = document.querySelector(".twoStars");
+        choiceTwo.addEventListener("click", selectTwo);
+        let choiceThree = document.querySelector(".threeStars");
+        choiceThree.addEventListener("click", selectThree);
+        let choiceFour = document.querySelector(".fourStars");
+        choiceFour.addEventListener("click", selectFour);
+        let choiceFive = document.querySelector(".fiveStars");
+        choiceFive.addEventListener("click", selectFive);
+
+        let recipeButton = document.querySelector(".recipe-button");
+        recipeButton.addEventListener("click", choose);
+        let subsButton = document.querySelector(".subscribe-button");
+        subsButton.addEventListener("click", subscribe);
+      </script>
+    </div>
+  </body>
+</html>
